@@ -61,3 +61,29 @@ addInventoryItem("Matcha Whisk Set");
 document.getElementById("addProductButton").addEventListener("click", () => {
     addInventoryItem("Miffy Exclusive: Matcha Whisk Set");  // 
 });
+
+// Task 4 - business customer section - event bubbling 
+// Selecting the customer section 
+const customerSection = document.getElementById("customerSection");
+
+// Added event listener to the parent container
+customerSection.addEventListener("click", () => {
+    console.log("This item has been selected");
+});
+
+// Create customer cards dynamically
+const customers = ["Customer 1", "Customer 2"];
+
+customers.forEach((name) => {
+    const customerCard = document.createElement("div");
+    customerCard.classList.add("customer-card");
+    customerCard.innerText = name;
+
+    // Add click event to each customer card
+    customerCard.addEventListener("click", (event) => {
+        console.log(name + " has been selected");
+        event.stopPropagation();  // Prevents parent click event from firing
+    });
+
+    customerSection.appendChild(customerCard);  // Add to the customer section
+});
