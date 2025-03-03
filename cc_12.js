@@ -21,3 +21,12 @@ dashboardById.appendChild(createMetricCard("expensesCard", "Expenses"));
 document.getElementById("revenueCard").querySelector("p").innerText = "$160";
 document.getElementById("profitCard").querySelector("p").innerText = "$100";
 document.getElementById("expensesCard").querySelector("p").innerText = "$90";
+
+// Task 2: Updating Dashboard Metrick 
+const metricCards = document.querySelectorAll(".metric-card"); // selected all metric cards
+const metricCardArray = [...metricCards];  // Convert List to an Array
+ metricCardArray.forEach(card => {
+        const title = card.querySelector("h3");
+        title.innerText += " - Updated";
+        card.style.backgroundColor = "mintcream";
+  });
